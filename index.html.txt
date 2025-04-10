@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Ban Remover Tool</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #00ff99;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #1b1b1b;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff99;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+    button {
+      background-color: #00ff99;
+      color: black;
+      cursor: pointer;
+    }
+    .progress {
+      display: none;
+      margin-top: 20px;
+      background-color: #333;
+      border-radius: 20px;
+      height: 20px;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      width: 0%;
+      background-color: #00ff99;
+      animation: loadBar 6s linear forwards;
+    }
+    @keyframes loadBar {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    .final-step {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ban Remover Admin Tool</h1>
+    <p>Bypass game bans instantly using dev access.</p>
+    
+    <select id="game">
+      <option value="" disabled selected>Select Game</option>
+      <option>Fortnite</option>
+      <option>Roblox</option>
+      <option>Apex Legends</option>
+      <option>Valorant</option>
+    </select>
+    
+    <input type="text" id="username" placeholder="Enter your in-game username">
+    
+    <button onclick="startProcess()">Start Unban Process</button>
+    
+    <div class="progress" id="progress">
+      <div class="bar"></div>
+    </div>
+
+    <div class="final-step" id="finalStep">
+      <p><strong>Step 2:</strong> Enter the Dev Auth Code to complete bypass.</p>
+      <input type="text" placeholder="Enter Authorization Code">
+      <button onclick="alert('Access Denied: Invalid code.')">Submit Code</button>
+    </div>
+  </div>
+
+  <!-- Optional Evil Tracking -->
+  <!-- <img src="https://your-iplogger-link-here.com" width="1" height="1"> -->
+
+  <script>
+    function startProcess() {
+      const game = document.getElementById("game").value;
+      const username = document.getElementById("username").value;
+
+      if (!game || !username) {
+        alert("Please select a game and enter your username.");
+        return;
+      }
+
+      document.getElementById("progress").style.display = "block";
+
+      setTimeout(() => {
+        document.getElementById("finalStep").style.display = "block";
+      }, 6000);
+    }
+  </script>
+</body>
+</html>
